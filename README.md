@@ -6,6 +6,8 @@ The ChurchTools Flyer Generator is a public service for the creation of flyers a
 
 💡 The idea for this project comes from a proof of concept implementation described in this blog post: https://tech.5pm.zone/2024/08/01/proof-of-concept-flyer-generator/
 
+Demo: https://flyer-generator.lukasdumberger.de/
+
 ## Run this Project
 
 This project is developed with the [Laravel-Framework](https://laravel.com/) any questions about the source code should be answered in the Laravel Documentation.
