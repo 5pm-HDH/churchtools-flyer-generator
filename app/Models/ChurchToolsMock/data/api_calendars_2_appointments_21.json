@@ -1,0 +1,126 @@
+{
+    "data": {
+        "appointment": {
+            "id": 21,
+            "caption": "Gottesdienst: Christen in Rom",
+            "note": "Wie lebten die Leute dort?",
+            "address": {
+                "meetingAt": "Gemeindezentrum",
+                "street": "Thundorfer Weg",
+                "addition": null,
+                "district": null,
+                "zip": "97702",
+                "city": "M\u00fcnnerstadt",
+                "country": "DE",
+                "latitude": "50.2293153",
+                "longitude": "10.3233789"
+            },
+            "version": 1,
+            "calendar": {
+                "id": 2,
+                "name": "Gottesdienst",
+                "nameTranslated": "Gottesdienst",
+                "sortKey": 10,
+                "color": "black",
+                "isPublic": true,
+                "isPrivate": false,
+                "randomUrl": "30a2d4d8ea19c0a52c54ef59d1b76196",
+                "iCalSourceUrl": null,
+                "syncToEvTermine": false,
+                "evTermineEventTypeId": null,
+                "campusId": null,
+                "eventTemplateId": null,
+                "type": "church",
+                "meta": {
+                    "modifiedDate": "2023-05-03T11:59:11Z",
+                    "modifiedPid": -1
+                }
+            },
+            "information": "Wie kam der christliche Glaube nach Rom? Unter welchen Bedingungen lebten die Christen dort? Und wie wurde es zum Zentrum des christlichen Glaubens?\n\nAntworten hat darauf unser Pastor Dieter. (CAL)",
+            "image": {
+                "id": 3093,
+                "domainType": "appointment_image",
+                "domainId": "21",
+                "name": "rom-bild.jpg",
+                "filename": "32c2fc1aa6cb15edbfe77bbc6fd07dadb225242bdfc124911adfd801a6060edc",
+                "fileUrl": "https:\/\/5pm.church.tools\/?q=public\/filedownload&id=3093&filename=32c2fc1aa6cb15edbfe77bbc6fd07dadb225242bdfc124911adfd801a6060edc",
+                "imageUrl": "https:\/\/5pm.church.tools\/images\/3093\/e3cf74cdcd87c452fd91f5042286e8edd8f097eece4d4178ea001f1e0e0094a8",
+                "relativeUrl": "?q=public\/filedownload&id=3093&filename=32c2fc1aa6cb15edbfe77bbc6fd07dadb225242bdfc124911adfd801a6060edc",
+                "showOnlyWhenEditable": false,
+                "securityLevelId": 0,
+                "imageOption": {
+                    "crop": {
+                        "top": "0.00000",
+                        "bottom": "0.00000",
+                        "left": "0.00000",
+                        "right": "0.00000"
+                    },
+                    "focus": {
+                        "x": "0.50000",
+                        "y": "0.50000"
+                    }
+                },
+                "type": "file",
+                "size": null,
+                "additionalInfos": [],
+                "meta": {
+                    "createdDate": "2024-08-06T06:43:59Z",
+                    "createdPerson": {
+                        "id": 1
+                    },
+                    "modifiedDate": "2024-08-06T06:43:59Z",
+                    "modifiedPerson": {
+                        "id": 1
+                    }
+                }
+            },
+            "link": "https:\/\/tech.5pm.zone\/",
+            "isInternal": false,
+            "startDate": "2024-08-06T09:00:00Z",
+            "endDate": "2024-08-06T10:30:00Z",
+            "allDay": false,
+            "repeatId": 0,
+            "repeatFrequency": null,
+            "repeatUntil": null,
+            "repeatOption": null,
+            "additionals": [],
+            "exceptions": [],
+            "signup": null,
+            "meta": {
+                "createdDate": "2024-08-06T06:41:44Z",
+                "createdPerson": {
+                    "id": 1
+                },
+                "modifiedDate": "2024-08-06T06:43:59Z",
+                "modifiedPerson": {
+                    "id": 1
+                }
+            },
+            "onBehalfOfPid": 12,
+            "@deprecated": "additions (now: additionals)",
+            "additions": []
+        },
+        "additionalInfos": [],
+        "calculatedDates": {
+            "2024-08-06": {
+                "startDate": "2024-08-06T09:00:00Z",
+                "endDate": "2024-08-06T10:30:00Z",
+                "event": {
+                    "title": "Gottesdienst: Christen in Rom",
+                    "domainType": "event",
+                    "domainIdentifier": "18",
+                    "apiUrl": "https:\/\/5pm.church.tools\/api\/events\/18",
+                    "frontendUrl": "https:\/\/5pm.church.tools\/?q=churchservice#ListView\/searchEntry:%2318\/",
+                    "imageUrl": null,
+                    "icon": "calendar-day",
+                    "color": null,
+                    "initials": null,
+                    "domainAttributes": {
+                        "startDate": "2024-08-06T09:00:00Z"
+                    },
+                    "infos": []
+                }
+            }
+        }
+    }
+}

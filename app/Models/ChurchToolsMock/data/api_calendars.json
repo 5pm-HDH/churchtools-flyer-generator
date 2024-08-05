@@ -1,0 +1,47 @@
+{
+    "data": [
+        {
+            "id": 2,
+            "name": "Gottesdienst",
+            "nameTranslated": "Gottesdienst",
+            "sortKey": 10,
+            "color": "black",
+            "isPublic": true,
+            "isPrivate": false,
+            "randomUrl": "30a2d4d8ea19c0a52c54ef59d1b76196",
+            "iCalSourceUrl": null,
+            "syncToEvTermine": false,
+            "evTermineEventTypeId": null,
+            "campusId": null,
+            "eventTemplateId": null,
+            "type": "church",
+            "meta": {
+                "modifiedDate": "2023-05-03T11:59:11Z",
+                "modifiedPid": -1
+            }
+        },
+        {
+            "id": 3,
+            "name": "Jugend",
+            "nameTranslated": "Jugend",
+            "sortKey": 20,
+            "color": "#c2c2c2",
+            "isPublic": true,
+            "isPrivate": false,
+            "randomUrl": "0897c00914f808ba29dca78c5c4b8dcc",
+            "iCalSourceUrl": "",
+            "syncToEvTermine": false,
+            "evTermineEventTypeId": null,
+            "campusId": null,
+            "eventTemplateId": null,
+            "type": "church",
+            "meta": {
+                "modifiedDate": "2023-05-03T11:59:11Z",
+                "modifiedPid": -1
+            }
+        }
+    ],
+    "meta": {
+        "count": 2
+    }
+}

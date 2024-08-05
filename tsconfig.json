@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": false,
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "outDir": "/resources/js-build",
+    "noUnusedLocals": true,
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+    "composite": true,
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowJs": true,
+    "allowImportingTsExtensions": true,
+    "emitDeclarationOnly": true,
+    "isolatedModules": true,
+    "paths": {
+      "@/*": ["./resources/js/*"]
+    }
+  },
+  "include": ["resources/js/**/*"],
+  "exclude": ["public", "vendor"],
+}

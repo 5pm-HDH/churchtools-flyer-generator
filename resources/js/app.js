@@ -1,11 +1,11 @@
 import { createApp } from 'vue';
 import vuetifyPlugin from "@/vuetifyPlugin.js";
-import StartPage from "@/Components/StartPage.vue";
+import LandingPage from "@/Components/LandingPage.vue";
 
 const app = createApp({});
 app.use(vuetifyPlugin);
 
-app.component("start-page", StartPage);
+app.component("landing-page", LandingPage);
 
 app.mount('#app');
 

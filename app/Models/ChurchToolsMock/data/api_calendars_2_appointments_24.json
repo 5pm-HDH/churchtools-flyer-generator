@@ -1,0 +1,80 @@
+{
+    "data": {
+        "appointment": {
+            "id": 24,
+            "caption": "Sonntag Gottesdienst",
+            "note": null,
+            "address": null,
+            "version": 0,
+            "calendar": {
+                "id": 2,
+                "name": "Gottesdienst",
+                "nameTranslated": "Gottesdienst",
+                "sortKey": 10,
+                "color": "black",
+                "isPublic": true,
+                "isPrivate": false,
+                "randomUrl": "30a2d4d8ea19c0a52c54ef59d1b76196",
+                "iCalSourceUrl": null,
+                "syncToEvTermine": false,
+                "evTermineEventTypeId": null,
+                "campusId": null,
+                "eventTemplateId": null,
+                "type": "church",
+                "meta": {
+                    "modifiedDate": "2023-05-03T11:59:11Z",
+                    "modifiedPid": -1
+                }
+            },
+            "information": null,
+            "image": null,
+            "link": null,
+            "isInternal": false,
+            "startDate": "2024-08-11T09:00:00Z",
+            "endDate": "2024-08-11T10:30:00Z",
+            "allDay": false,
+            "repeatId": 0,
+            "repeatFrequency": null,
+            "repeatUntil": null,
+            "repeatOption": null,
+            "additionals": [],
+            "exceptions": [],
+            "signup": null,
+            "meta": {
+                "createdDate": "2024-08-06T06:48:13Z",
+                "createdPerson": {
+                    "id": 1
+                },
+                "modifiedDate": "2024-08-06T06:48:13Z",
+                "modifiedPerson": {
+                    "id": 1
+                }
+            },
+            "onBehalfOfPid": null,
+            "@deprecated": "additions (now: additionals)",
+            "additions": []
+        },
+        "additionalInfos": [],
+        "calculatedDates": {
+            "2024-08-11": {
+                "startDate": "2024-08-11T09:00:00Z",
+                "endDate": "2024-08-11T10:30:00Z",
+                "event": {
+                    "title": "Sonntag Gottesdienst",
+                    "domainType": "event",
+                    "domainIdentifier": "21",
+                    "apiUrl": "https:\/\/5pm.church.tools\/api\/events\/21",
+                    "frontendUrl": "https:\/\/5pm.church.tools\/?q=churchservice#ListView\/searchEntry:%2321\/",
+                    "imageUrl": null,
+                    "icon": "calendar-day",
+                    "color": null,
+                    "initials": null,
+                    "domainAttributes": {
+                        "startDate": "2024-08-11T09:00:00Z"
+                    },
+                    "infos": []
+                }
+            }
+        }
+    }
+}

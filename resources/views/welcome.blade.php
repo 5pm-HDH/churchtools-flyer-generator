@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Flyer Generator</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -30,7 +30,7 @@
     </head>
     <body class="antialiased">
         <div id="app">
-            <start-page></start-page>
+            <landing-page></landing-page>
         </div>
     </body>
 </html>

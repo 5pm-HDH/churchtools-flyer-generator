@@ -1,4 +1,4 @@
-import {Calendar} from "./Calendar";
+import {type Calendar} from "./Calendar";
 
 export type Appointment = {
     id: string;
@@ -11,5 +11,6 @@ export type Appointment = {
     calculated_endDate: string;
     image?: {
         imageUrl: string;
-    }
+    };
+    template_data: Record<string, string>;
 }
