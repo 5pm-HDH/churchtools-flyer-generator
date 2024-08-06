@@ -119,7 +119,7 @@ onMounted(async () => {
                     </div>
                 </v-card-title>
                 <v-card-text>
-                    <v-img v-if="template.imgSrc" :src="template.imgSrc"/>
+                    <v-img v-if="template.imgSrc" max-height="300" :src="template.imgSrc"/>
                 </v-card-text>
             </v-card>
         </v-col>

@@ -324,33 +324,33 @@ function focusableChildren(el) {
   const targets = ["button", "[href]", 'input:not([type="hidden"])', "select", "textarea", "[tabindex]"].map((s) => `${s}${filterByTabIndex ? ':not([tabindex="-1"])' : ""}:not([disabled])`).join(", ");
   return [...el.querySelectorAll(targets)];
 }
-function getNextElement(elements, location, condition) {
+function getNextElement(elements, location2, condition) {
   let _el;
   let idx = elements.indexOf(document.activeElement);
-  const inc = location === "next" ? 1 : -1;
+  const inc = location2 === "next" ? 1 : -1;
   do {
     idx += inc;
     _el = elements[idx];
   } while ((!_el || _el.offsetParent == null || !((condition == null ? void 0 : condition(_el)) ?? true)) && idx < elements.length && idx >= 0);
   return _el;
 }
-function focusChild(el, location) {
+function focusChild(el, location2) {
   var _a, _b, _c, _d;
   const focusable = focusableChildren(el);
-  if (!location) {
+  if (!location2) {
     if (el === document.activeElement || !el.contains(document.activeElement)) {
       (_a = focusable[0]) == null ? void 0 : _a.focus();
     }
-  } else if (location === "first") {
+  } else if (location2 === "first") {
     (_b = focusable[0]) == null ? void 0 : _b.focus();
-  } else if (location === "last") {
+  } else if (location2 === "last") {
     (_c = focusable.at(-1)) == null ? void 0 : _c.focus();
-  } else if (typeof location === "number") {
-    (_d = focusable[location]) == null ? void 0 : _d.focus();
+  } else if (typeof location2 === "number") {
+    (_d = focusable[location2]) == null ? void 0 : _d.focus();
   } else {
-    const _el = getNextElement(focusable, location);
+    const _el = getNextElement(focusable, location2);
     if (_el) _el.focus();
-    else focusChild(el, location === "next" ? "first" : "last");
+    else focusChild(el, location2 === "next" ? "first" : "last");
   }
 }
 function matchesSelector(el, selector) {
@@ -2521,9 +2521,9 @@ async function scrollTo(_target, _options, horizontal, goTo) {
   return new Promise((resolve) => requestAnimationFrame(function step(currentTime) {
     const timeElapsed = currentTime - startTime;
     const progress = timeElapsed / options.duration;
-    const location = Math.floor(startLocation + (targetLocation - startLocation) * ease(clamp(progress, 0, 1)));
-    container[property] = location;
-    if (progress >= 1 && Math.abs(location - container[property]) < 10) {
+    const location2 = Math.floor(startLocation + (targetLocation - startLocation) * ease(clamp(progress, 0, 1)));
+    container[property] = location2;
+    if (progress >= 1 && Math.abs(location2 - container[property]) < 10) {
       return resolve(targetLocation);
     } else if (progress > 2) {
       consoleWarn("Scroll target is not reachable");
@@ -3056,6 +3056,7 @@ function useResizeObserver(callback) {
   const contentRect = ref();
   if (IN_BROWSER) {
     const observer = new ResizeObserver((entries) => {
+      callback == null ? void 0 : callback(entries, observer);
       if (!entries.length) return;
       if (box === "content") {
         contentRect.value = entries[0].contentRect;
@@ -7536,9 +7537,9 @@ const VSlideGroup = genericComponent()({
     }
     function onKeydown(e) {
       if (!contentRef.el) return;
-      function toFocus(location) {
+      function toFocus(location2) {
         e.preventDefault();
-        focus(location);
+        focus(location2);
       }
       if (isHorizontal.value) {
         if (e.key === "ArrowRight") {
@@ -7559,22 +7560,22 @@ const VSlideGroup = genericComponent()({
         toFocus("last");
       }
     }
-    function focus(location) {
+    function focus(location2) {
       var _a, _b;
       if (!contentRef.el) return;
       let el;
-      if (!location) {
+      if (!location2) {
         const focusable = focusableChildren(contentRef.el);
         el = focusable[0];
-      } else if (location === "next") {
+      } else if (location2 === "next") {
         el = (_a = contentRef.el.querySelector(":focus")) == null ? void 0 : _a.nextElementSibling;
         if (!el) return focus("first");
-      } else if (location === "prev") {
+      } else if (location2 === "prev") {
         el = (_b = contentRef.el.querySelector(":focus")) == null ? void 0 : _b.previousElementSibling;
         if (!el) return focus("last");
-      } else if (location === "first") {
+      } else if (location2 === "first") {
         el = contentRef.el.firstElementChild;
-      } else if (location === "last") {
+      } else if (location2 === "last") {
         el = contentRef.el.lastElementChild;
       }
       if (el) {
@@ -7583,9 +7584,9 @@ const VSlideGroup = genericComponent()({
         });
       }
     }
-    function scrollTo2(location) {
+    function scrollTo2(location2) {
       const direction = isHorizontal.value && isRtl.value ? -1 : 1;
-      const offsetStep = (location === "prev" ? -direction : direction) * containerSize.value;
+      const offsetStep = (location2 === "prev" ? -direction : direction) * containerSize.value;
       let newPosition = scrollOffset.value + offsetStep;
       if (isHorizontal.value && isRtl.value && containerRef.el) {
         const {
@@ -9492,9 +9493,9 @@ const VList = genericComponent()({
     function onMousedown(e) {
       isFocused.value = true;
     }
-    function focus(location) {
+    function focus(location2) {
       if (contentRef.value) {
-        return focusChild(contentRef.value, location);
+        return focusChild(contentRef.value, location2);
       }
     }
     useRender(() => {
@@ -14849,6 +14850,81 @@ const VFileInput = genericComponent()({
     return forwardRefs({}, vInputRef, vFieldRef, inputRef);
   }
 });
+const makeVFooterProps = propsFactory({
+  app: Boolean,
+  color: String,
+  height: {
+    type: [Number, String],
+    default: "auto"
+  },
+  ...makeBorderProps(),
+  ...makeComponentProps(),
+  ...makeElevationProps(),
+  ...makeLayoutItemProps(),
+  ...makeRoundedProps(),
+  ...makeTagProps({
+    tag: "footer"
+  }),
+  ...makeThemeProps()
+}, "VFooter");
+const VFooter = genericComponent()({
+  name: "VFooter",
+  props: makeVFooterProps(),
+  setup(props, _ref) {
+    let {
+      slots
+    } = _ref;
+    const layoutItemStyles = ref();
+    const layoutIsReady = shallowRef();
+    const {
+      themeClasses
+    } = provideTheme(props);
+    const {
+      backgroundColorClasses,
+      backgroundColorStyles
+    } = useBackgroundColor(toRef(props, "color"));
+    const {
+      borderClasses
+    } = useBorder(props);
+    const {
+      elevationClasses
+    } = useElevation(props);
+    const {
+      roundedClasses
+    } = useRounded(props);
+    const autoHeight = shallowRef(32);
+    const {
+      resizeRef
+    } = useResizeObserver((entries) => {
+      if (!entries.length) return;
+      autoHeight.value = entries[0].target.clientHeight;
+    });
+    const height = computed(() => props.height === "auto" ? autoHeight.value : parseInt(props.height, 10));
+    useToggleScope(() => props.app, () => {
+      const layout = useLayoutItem({
+        id: props.name,
+        order: computed(() => parseInt(props.order, 10)),
+        position: computed(() => "bottom"),
+        layoutSize: height,
+        elementSize: computed(() => props.height === "auto" ? void 0 : height.value),
+        active: computed(() => props.app),
+        absolute: toRef(props, "absolute")
+      });
+      watchEffect(() => {
+        layoutItemStyles.value = layout.layoutItemStyles.value;
+        layoutIsReady.value = layout.layoutIsReady;
+      });
+    });
+    useRender(() => createVNode(props.tag, {
+      "ref": resizeRef,
+      "class": ["v-footer", themeClasses.value, backgroundColorClasses.value, borderClasses.value, elevationClasses.value, roundedClasses.value, props.class],
+      "style": [backgroundColorStyles.value, props.app ? layoutItemStyles.value : {
+        height: convertToUnit(props.height)
+      }, props.style]
+    }, slots));
+    return props.app ? layoutIsReady.value : {};
+  }
+});
 const makeVMainProps = propsFactory({
   scrollable: Boolean,
   ...makeComponentProps(),
@@ -18425,6 +18501,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent$1({
                       default: withCtx(() => [
                         template.imgSrc ? (openBlock(), createBlock(VImg, {
                           key: 0,
+                          "max-height": "300",
                           src: template.imgSrc
                         }, null, 8, ["src"])) : createCommentVNode("", true)
                       ], void 0, true),
@@ -18689,6 +18766,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent$1({
     const onChurchToolsUrlSet = (url, siteName, connectionIsMocked) => {
       setChurchToolsUrl(url, siteName ?? url, connectionIsMocked);
     };
+    const navigateToGithub = () => {
+      location.href = "https://github.com/5pm-HDH/churchtools-flyer-generator";
+    };
     return (_ctx, _cache) => {
       return openBlock(), createBlock(VApp, null, {
         default: withCtx(() => [
@@ -18709,7 +18789,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent$1({
                 ], void 0, true),
                 _: 1
               }),
-              createVNode(VContainer, null, {
+              createVNode(VContainer, { style: { "min-height": "calc(100vh - (44px + 48px))" } }, {
                 default: withCtx(() => [
                   createVNode(VRow, null, {
                     default: withCtx(() => [
@@ -18738,6 +18818,19 @@ const _sfc_main = /* @__PURE__ */ defineComponent$1({
                 ], void 0, true),
                 _: 1
               })
+            ], void 0, true),
+            _: 1
+          }),
+          createVNode(VFooter, { class: "px-0 secondary text-right d-flex flex-column align-end" }, {
+            default: withCtx(() => [
+              createElementVNode("div", null, [
+                createVNode(VBtn, {
+                  onClick: _cache[0] || (_cache[0] = () => navigateToGithub()),
+                  icon: "mdi-github",
+                  class: "mx-4",
+                  variant: "text"
+                })
+              ])
             ], void 0, true),
             _: 1
           })

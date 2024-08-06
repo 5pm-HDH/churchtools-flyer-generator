@@ -22,10 +22,10 @@ const setChurchToolsUrl = (url: string, siteName: string, connectionIsMocked: bo
     churchToolsUrl.value = url;
     churchToolsSiteName.value = siteName;
     ajax.defaults.headers.common['ChurchTools-Url'] = url;
-    if(!connectionIsMocked){
+    if (!connectionIsMocked) {
         localStorage.setItem(LOCAL_STORAGE_URL_KEY, url);
         localStorage.setItem(LOCAL_STORAGE_SITE_NAME_KEY, siteName);
-    }else{
+    } else {
         ajax.defaults.headers.common['ChurchTools-Mock'] = true;
     }
 }
@@ -41,6 +41,10 @@ const logout = () => {
 const onChurchToolsUrlSet = (url: string, siteName: string | null, connectionIsMocked: boolean) => {
     setChurchToolsUrl(url, siteName ?? url, connectionIsMocked);
 }
+
+const navigateToGithub = () => {
+    location.href = 'https://github.com/5pm-HDH/churchtools-flyer-generator';
+}
 </script>
 <template>
 
@@ -55,7 +59,7 @@ const onChurchToolsUrlSet = (url: string, siteName: string | null, connectionIsM
                 <v-btn icon="mdi-logout" v-if="!!churchToolsUrl" @click="logout"/>
             </v-app-bar>
 
-            <v-container>
+            <v-container style="min-height: calc(100vh - (44px + 48px))">
 
                 <v-row>
                     <v-col cols="0" lg="2" xl="3"><!-- Center Dialog --></v-col>
@@ -66,6 +70,20 @@ const onChurchToolsUrlSet = (url: string, siteName: string | null, connectionIsM
 
                 <GenerateFlyerStepper v-if="churchToolsUrl"/>
             </v-container>
+
+
         </v-main>
+        <v-footer
+            class="px-0 secondary text-right d-flex flex-column align-end"
+        >
+            <div>
+                <v-btn
+                    @click="() => navigateToGithub()"
+                    icon="mdi-github"
+                    class="mx-4"
+                    variant="text"
+                ></v-btn>
+            </div>
+        </v-footer>
     </v-app>
 </template>
