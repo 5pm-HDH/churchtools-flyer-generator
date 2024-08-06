@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use CTApi\Models\Calendars\Appointment\Appointment;
+use DateTimeZone;
 
 class TemplateDataService
 {
@@ -35,27 +36,27 @@ class TemplateDataService
 
     public static function getDefault(): TemplateDataService
     {
-        $dateFormatter = function(string|null $value){
-            if($value == null){
+        $dateFormatter = function (string|null $value) {
+            if ($value == null) {
                 return null;
             }
 
-            $dateOrFalse = \DateTimeImmutable::createFromFormat('Y-m-d\TH:i:s\Z', $value);
-            if($dateOrFalse === false){
+            $dateOrFalse = \DateTimeImmutable::createFromFormat('Y-m-d\TH:i:s\Z', $value, new DateTimeZone('UTC'));
+            if ($dateOrFalse === false) {
                 return null;
             }
-            return $dateOrFalse->format("d.m.Y");
+            return $dateOrFalse->setTimezone(new DateTimeZone('Europe/Berlin'))->format("d.m.Y");
         };
-        $timeFormatter = function(string|null $value){
-            if($value == null){
+        $timeFormatter = function (string|null $value) {
+            if ($value == null) {
                 return null;
             }
 
-            $dateOrFalse = \DateTimeImmutable::createFromFormat('Y-m-d\TH:i:s\Z', $value);
-            if($dateOrFalse === false){
+            $dateOrFalse = \DateTimeImmutable::createFromFormat('Y-m-d\TH:i:s\Z', $value, new DateTimeZone('UTC'));
+            if ($dateOrFalse === false) {
                 return null;
             }
-            return $dateOrFalse->format("h:i");
+            return $dateOrFalse->setTimezone(new DateTimeZone('Europe/Berlin'))->format("H:i");
         };
 
         return new TemplateDataService([
