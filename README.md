@@ -2,13 +2,15 @@
 
 The ChurchTools Flyer Generator is a public service for the creation of flyers and other images that are filled with data from ChurchTools.
 
+https://flyer-generator.5pm.zone/
+
 🔭 **Fundamental philosophy:** No one wants to share their ChurchTools credentials with any other platform than ChurchTools. This project follows the approach of being completely open. There is no user registration or login required.  Since most ChurchTools calendars are public and available without logging in, this approach might actually work.
 
-💡 The idea for this project comes from a proof of concept implementation described in this blog post: https://tech.5pm.zone/2024/08/01/proof-of-concept-flyer-generator/
+💡 The idea for this project comes from a proof of concept implementation described in [this blog post](https://tech.5pm.zone/2024/08/01/proof-of-concept-flyer-generator/)
 
-## Run this Project
+## Run this Project (Development)
 
-This project is developed with the [Laravel-Framework](https://laravel.com/) any questions about the source code should be answered in the Laravel Documentation.
+This project is developed with the [Laravel-Framework](https://laravel.com/) any questions about the configuration should be answered in the Laravel Documentation.
 
 1. Download sourcecode
 2. Install PHP, Composer and Node.js if not already done
@@ -22,15 +24,15 @@ This project is developed with the [Laravel-Framework](https://laravel.com/) any
 
 This repo provides in the current state only a template to build further development on it. 
 
-**Stage 1:**
+**Stage 1: ✅**
 
 Create flyer for appointments.
 
-- [ ] Select multiple appointments from calendar to create flyer for. Filter for calendar, start- and end-date.
-- [ ] Provide a basic set off template variables (caption, description, start- / end-date, ...); Templated variables are formatted as v-chips.
-- [ ] Upload word-file as template (see [implementation in poc](https://github.com/5pm-HDH/churchtools-cli/blob/827cb552e0975d0d848b3e10b568ee9737bbd663/src/Commands/ExportCommands/ExportFlyerCommand.php#L35))
-- [ ] Download processed word-files (finished flyers).
-- [ ] Deploy public service to demonstrate usage.
+- [x] Select multiple appointments from calendar to create flyer for. Filter for calendar, start- and end-date.
+- [x] Provide a basic set off template variables (caption, description, start- / end-date, ...); Templated variables are formatted as v-chips.
+- [x] Upload word-file as template (see [implementation in poc](https://github.com/5pm-HDH/churchtools-cli/blob/827cb552e0975d0d848b3e10b568ee9737bbd663/src/Commands/ExportCommands/ExportFlyerCommand.php#L35))
+- [x] Download processed word-files (finished flyers).
+- [x] Deploy public service to demonstrate usage.
 
 **Stage 2:**
 
